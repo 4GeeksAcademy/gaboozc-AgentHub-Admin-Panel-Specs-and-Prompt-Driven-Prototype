@@ -11,7 +11,7 @@
       rel="stylesheet"
     />
     <script>
-      tailwind = {
+      window.tailwind = {
         config: {
           darkMode: "class",
         },
@@ -19,87 +19,291 @@
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="h-full bg-slate-100 [font-family:'Manrope',sans-serif] text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100">
-    <div class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(34,197,94,0.18),transparent_35%),radial-gradient(circle_at_85%_15%,rgba(14,165,233,0.14),transparent_42%),radial-gradient(circle_at_50%_85%,rgba(251,191,36,0.12),transparent_45%)]"></div>
+  <body
+    class="h-full bg-slate-100 [font-family:'Manrope',sans-serif] text-slate-800 antialiased dark:bg-slate-950 dark:text-slate-100"
+  >
+    <div
+      class="hidden bg-slate-950 bg-slate-900 bg-slate-900/90 bg-slate-900/80 border-slate-700 text-slate-100 text-slate-300 text-slate-400"
+      aria-hidden="true"
+    ></div>
+    <div
+      id="app-background"
+      class="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(34,197,94,0.18),transparent_35%),radial-gradient(circle_at_85%_15%,rgba(14,165,233,0.14),transparent_42%),radial-gradient(circle_at_50%_85%,rgba(251,191,36,0.12),transparent_45%)]"
+    ></div>
 
     <div class="flex h-full">
-      <nav class="hidden w-72 flex-shrink-0 border-r border-slate-200/80 bg-white/85 p-6 backdrop-blur lg:block dark:border-slate-800 dark:bg-slate-900/80" aria-label="Sidebar navigation">
+      <nav
+        id="sidebar-shell"
+        class="hidden w-72 flex-shrink-0 border-r border-slate-200/80 bg-white/85 p-6 backdrop-blur lg:block dark:border-slate-800 dark:bg-slate-900/80"
+        aria-label="Sidebar navigation"
+      >
         <div class="mb-8">
-          <p class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">AgentHub</p>
-          <h1 class="mt-2 text-2xl font-extrabold [font-family:'Sora',sans-serif]">Admin Control</h1>
+          <p
+            class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400"
+          >
+            AgentHub
+          </p>
+          <h1
+            class="mt-2 text-2xl font-extrabold [font-family:'Sora',sans-serif]"
+          >
+            Admin Control
+          </h1>
         </div>
         <ul id="sidebar-nav" class="space-y-2">
-          <li><button data-section="dashboard" class="nav-btn w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition">Dashboard</button></li>
-          <li><button data-section="users" class="nav-btn w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition">User Management</button></li>
-          <li><button data-section="agents" class="nav-btn w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition">Agent Management</button></li>
-          <li><button data-section="skills" class="nav-btn w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition">Skills</button></li>
-          <li><button data-section="contracts" class="nav-btn w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition">Agent Contracts</button></li>
-          <li><button data-section="errors" class="nav-btn w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition">Error Log</button></li>
+          <li>
+            <button
+              data-section="dashboard"
+              class="nav-btn w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition"
+            >
+              Dashboard
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="users"
+              class="nav-btn w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition"
+            >
+              User Management
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="agents"
+              class="nav-btn w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition"
+            >
+              Agent Management
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="skills"
+              class="nav-btn w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition"
+            >
+              Skills
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="contracts"
+              class="nav-btn w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition"
+            >
+              Agent Contracts
+            </button>
+          </li>
+          <li>
+            <button
+              data-section="errors"
+              class="nav-btn w-full rounded-xl px-4 py-3 text-left text-sm font-semibold transition"
+            >
+              Error Log
+            </button>
+          </li>
         </ul>
       </nav>
 
       <div class="flex min-w-0 flex-1 flex-col">
-        <header class="sticky top-0 z-30 border-b border-slate-200/80 bg-white/85 px-4 py-4 backdrop-blur sm:px-6 dark:border-slate-800 dark:bg-slate-900/80">
+        <header
+          id="topbar-shell"
+          class="sticky top-0 z-30 border-b border-slate-200/80 bg-white/85 px-4 py-4 backdrop-blur sm:px-6 dark:border-slate-800 dark:bg-slate-900/80"
+        >
           <div class="flex items-center justify-between gap-4">
             <div class="flex min-w-0 items-center gap-3">
-              <button id="mobile-nav-toggle" class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold lg:hidden dark:border-slate-700" aria-label="Toggle mobile navigation">Menu</button>
+              <button
+                id="mobile-nav-toggle"
+                class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold lg:hidden dark:border-slate-700"
+                aria-label="Toggle mobile navigation"
+              >
+                Menu
+              </button>
               <div>
-                <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Operations Panel</p>
-                <h2 id="section-title" class="truncate text-xl font-extrabold [font-family:'Sora',sans-serif]">Dashboard</h2>
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400"
+                >
+                  Operations Panel
+                </p>
+                <h2
+                  id="section-title"
+                  class="truncate text-xl font-extrabold [font-family:'Sora',sans-serif]"
+                >
+                  Dashboard
+                </h2>
               </div>
             </div>
-            <button id="theme-toggle" class="inline-flex items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold dark:border-slate-700" aria-label="Toggle color mode">
+            <button
+              id="theme-toggle"
+              class="inline-flex items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold dark:border-slate-700"
+              aria-label="Toggle color mode"
+            >
               <span id="theme-label">Dark Mode</span>
             </button>
           </div>
 
-          <div id="mobile-nav" class="mt-4 hidden rounded-xl border border-slate-200 bg-white p-2 lg:hidden dark:border-slate-800 dark:bg-slate-900">
+          <div
+            id="mobile-nav"
+            class="mt-4 hidden rounded-xl border border-slate-200 bg-white p-2 lg:hidden dark:border-slate-800 dark:bg-slate-900"
+          >
             <ul class="space-y-1" aria-label="Mobile navigation">
-              <li><button data-section="dashboard" class="nav-btn w-full rounded-lg px-3 py-2 text-left text-sm font-semibold">Dashboard</button></li>
-              <li><button data-section="users" class="nav-btn w-full rounded-lg px-3 py-2 text-left text-sm font-semibold">User Management</button></li>
-              <li><button data-section="agents" class="nav-btn w-full rounded-lg px-3 py-2 text-left text-sm font-semibold">Agent Management</button></li>
-              <li><button data-section="skills" class="nav-btn w-full rounded-lg px-3 py-2 text-left text-sm font-semibold">Skills</button></li>
-              <li><button data-section="contracts" class="nav-btn w-full rounded-lg px-3 py-2 text-left text-sm font-semibold">Agent Contracts</button></li>
-              <li><button data-section="errors" class="nav-btn w-full rounded-lg px-3 py-2 text-left text-sm font-semibold">Error Log</button></li>
+              <li>
+                <button
+                  data-section="dashboard"
+                  class="nav-btn w-full rounded-lg px-3 py-2 text-left text-sm font-semibold"
+                >
+                  Dashboard
+                </button>
+              </li>
+              <li>
+                <button
+                  data-section="users"
+                  class="nav-btn w-full rounded-lg px-3 py-2 text-left text-sm font-semibold"
+                >
+                  User Management
+                </button>
+              </li>
+              <li>
+                <button
+                  data-section="agents"
+                  class="nav-btn w-full rounded-lg px-3 py-2 text-left text-sm font-semibold"
+                >
+                  Agent Management
+                </button>
+              </li>
+              <li>
+                <button
+                  data-section="skills"
+                  class="nav-btn w-full rounded-lg px-3 py-2 text-left text-sm font-semibold"
+                >
+                  Skills
+                </button>
+              </li>
+              <li>
+                <button
+                  data-section="contracts"
+                  class="nav-btn w-full rounded-lg px-3 py-2 text-left text-sm font-semibold"
+                >
+                  Agent Contracts
+                </button>
+              </li>
+              <li>
+                <button
+                  data-section="errors"
+                  class="nav-btn w-full rounded-lg px-3 py-2 text-left text-sm font-semibold"
+                >
+                  Error Log
+                </button>
+              </li>
             </ul>
           </div>
         </header>
 
-        <main class="min-h-0 flex-1 overflow-y-auto p-4 sm:p-6">
-          <section id="dashboard" class="panel-section space-y-6" aria-label="Dashboard section">
+        <main id="main-shell" class="min-h-0 flex-1 overflow-y-auto p-4 sm:p-6">
+          <section
+            id="dashboard"
+            class="panel-section space-y-6"
+            aria-label="Dashboard section"
+          >
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-              <article class="rounded-2xl border border-emerald-200 bg-white/90 p-5 shadow-sm dark:border-emerald-900 dark:bg-slate-900/80">
-                <p class="text-xs font-bold uppercase tracking-[0.14em] text-emerald-600 dark:text-emerald-400">Revenue</p>
-                <h3 class="mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400">Total Revenue (This Month)</h3>
-                <p class="mt-3 text-3xl font-extrabold [font-family:'Sora',sans-serif]">$184,700</p>
+              <article
+                class="rounded-2xl border border-emerald-200 bg-white/90 p-5 shadow-sm dark:border-emerald-900 dark:bg-slate-900/80"
+              >
+                <p
+                  class="text-xs font-bold uppercase tracking-[0.14em] text-emerald-600 dark:text-emerald-400"
+                >
+                  Revenue
+                </p>
+                <h3
+                  class="mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400"
+                >
+                  Total Revenue (This Month)
+                </h3>
+                <p
+                  class="mt-3 text-3xl font-extrabold [font-family:'Sora',sans-serif]"
+                >
+                  $184,700
+                </p>
               </article>
-              <article class="rounded-2xl border border-amber-200 bg-white/90 p-5 shadow-sm dark:border-amber-900 dark:bg-slate-900/80">
-                <p class="text-xs font-bold uppercase tracking-[0.14em] text-amber-600 dark:text-amber-400">Losses</p>
-                <h3 class="mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400">Discount / Coupon Losses</h3>
-                <p class="mt-3 text-3xl font-extrabold [font-family:'Sora',sans-serif]">$12,960</p>
+              <article
+                class="rounded-2xl border border-amber-200 bg-white/90 p-5 shadow-sm dark:border-amber-900 dark:bg-slate-900/80"
+              >
+                <p
+                  class="text-xs font-bold uppercase tracking-[0.14em] text-amber-600 dark:text-amber-400"
+                >
+                  Losses
+                </p>
+                <h3
+                  class="mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400"
+                >
+                  Discount / Coupon Losses
+                </h3>
+                <p
+                  class="mt-3 text-3xl font-extrabold [font-family:'Sora',sans-serif]"
+                >
+                  $12,960
+                </p>
               </article>
-              <article class="rounded-2xl border border-sky-200 bg-white/90 p-5 shadow-sm dark:border-sky-900 dark:bg-slate-900/80">
-                <p class="text-xs font-bold uppercase tracking-[0.14em] text-sky-600 dark:text-sky-400">Utilization</p>
-                <h3 class="mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400">Active Agents</h3>
-                <p class="mt-3 text-3xl font-extrabold [font-family:'Sora',sans-serif]">57</p>
+              <article
+                class="rounded-2xl border border-sky-200 bg-white/90 p-5 shadow-sm dark:border-sky-900 dark:bg-slate-900/80"
+              >
+                <p
+                  class="text-xs font-bold uppercase tracking-[0.14em] text-sky-600 dark:text-sky-400"
+                >
+                  Utilization
+                </p>
+                <h3
+                  class="mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400"
+                >
+                  Active Agents
+                </h3>
+                <p
+                  class="mt-3 text-3xl font-extrabold [font-family:'Sora',sans-serif]"
+                >
+                  57
+                </p>
               </article>
-              <article class="rounded-2xl border border-rose-200 bg-white/90 p-5 shadow-sm dark:border-rose-900 dark:bg-slate-900/80">
-                <p class="text-xs font-bold uppercase tracking-[0.14em] text-rose-600 dark:text-rose-400">Risk</p>
-                <h3 class="mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400">Failing Agents</h3>
-                <p class="mt-3 text-3xl font-extrabold [font-family:'Sora',sans-serif]">6</p>
+              <article
+                class="rounded-2xl border border-rose-200 bg-white/90 p-5 shadow-sm dark:border-rose-900 dark:bg-slate-900/80"
+              >
+                <p
+                  class="text-xs font-bold uppercase tracking-[0.14em] text-rose-600 dark:text-rose-400"
+                >
+                  Risk
+                </p>
+                <h3
+                  class="mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400"
+                >
+                  Failing Agents
+                </h3>
+                <p
+                  class="mt-3 text-3xl font-extrabold [font-family:'Sora',sans-serif]"
+                >
+                  6
+                </p>
               </article>
             </div>
 
-            <div class="rounded-2xl border-2 border-dashed border-slate-300 bg-white/75 p-8 text-center dark:border-slate-700 dark:bg-slate-900/70">
-              <h3 class="text-lg font-bold [font-family:'Sora',sans-serif]">Weekly Activity Chart Placeholder</h3>
-              <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Reserved area for future analytics chart integration.</p>
+            <div
+              class="rounded-2xl border-2 border-dashed border-slate-300 bg-white/75 p-8 text-center dark:border-slate-700 dark:bg-slate-900/70"
+            >
+              <h3 class="text-lg font-bold [font-family:'Sora',sans-serif]">
+                Weekly Activity Chart Placeholder
+              </h3>
+              <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                Reserved area for future analytics chart integration.
+              </p>
             </div>
           </section>
 
-          <section id="users" class="panel-section hidden" aria-label="User management section">
-            <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white/90 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+          <section
+            id="users"
+            class="panel-section hidden"
+            aria-label="User management section"
+          >
+            <div
+              class="overflow-x-auto rounded-2xl border border-slate-200 bg-white/90 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+            >
               <table class="min-w-full text-sm">
-                <thead class="bg-slate-50 text-left uppercase tracking-wide text-slate-500 dark:bg-slate-800/70 dark:text-slate-400">
+                <thead
+                  class="bg-slate-50 text-left uppercase tracking-wide text-slate-500 dark:bg-slate-800/70 dark:text-slate-400"
+                >
                   <tr>
                     <th class="px-4 py-3">Name</th>
                     <th class="px-4 py-3">Email</th>
@@ -108,25 +312,52 @@
                     <th class="px-4 py-3 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody id="users-body" class="divide-y divide-slate-200 dark:divide-slate-800"></tbody>
+                <tbody
+                  id="users-body"
+                  class="divide-y divide-slate-200 dark:divide-slate-800"
+                ></tbody>
               </table>
             </div>
           </section>
 
-          <section id="agents" class="panel-section hidden space-y-3" aria-label="Agent management section"></section>
+          <section
+            id="agents"
+            class="panel-section hidden space-y-3"
+            aria-label="Agent management section"
+          ></section>
 
-          <section id="skills" class="panel-section hidden space-y-4" aria-label="Skills section">
-            <article class="rounded-2xl border border-sky-200 bg-sky-50/80 p-4 text-sm dark:border-sky-900 dark:bg-sky-950/40">
-              <h3 class="text-base font-bold [font-family:'Sora',sans-serif]">What is a skill?</h3>
-              <p class="mt-1 text-slate-700 dark:text-slate-300">A skill is a reusable capability module an admin can attach to an AI agent, such as browsing, document extraction, calendar control, or CRM updates.</p>
+          <section
+            id="skills"
+            class="panel-section hidden space-y-4"
+            aria-label="Skills section"
+          >
+            <article
+              class="rounded-2xl border border-sky-200 bg-sky-50/80 p-4 text-sm dark:border-sky-900 dark:bg-sky-950/40"
+            >
+              <h3 class="text-base font-bold [font-family:'Sora',sans-serif]">
+                What is a skill?
+              </h3>
+              <p class="mt-1 text-slate-700 dark:text-slate-300">
+                A skill is a reusable capability module an admin can attach to
+                an AI agent, such as browsing, document extraction, calendar
+                control, or CRM updates.
+              </p>
             </article>
             <div id="skills-list" class="space-y-3"></div>
           </section>
 
-          <section id="contracts" class="panel-section hidden" aria-label="Agent contracts section">
-            <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white/90 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+          <section
+            id="contracts"
+            class="panel-section hidden"
+            aria-label="Agent contracts section"
+          >
+            <div
+              class="overflow-x-auto rounded-2xl border border-slate-200 bg-white/90 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+            >
               <table class="min-w-full text-sm">
-                <thead class="bg-slate-50 text-left uppercase tracking-wide text-slate-500 dark:bg-slate-800/70 dark:text-slate-400">
+                <thead
+                  class="bg-slate-50 text-left uppercase tracking-wide text-slate-500 dark:bg-slate-800/70 dark:text-slate-400"
+                >
                   <tr>
                     <th class="px-4 py-3">Client</th>
                     <th class="px-4 py-3">Agent</th>
@@ -137,15 +368,26 @@
                     <th class="px-4 py-3 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody id="contracts-body" class="divide-y divide-slate-200 dark:divide-slate-800"></tbody>
+                <tbody
+                  id="contracts-body"
+                  class="divide-y divide-slate-200 dark:divide-slate-800"
+                ></tbody>
               </table>
             </div>
           </section>
 
-          <section id="errors" class="panel-section hidden" aria-label="Error log section">
-            <div class="overflow-x-auto rounded-2xl border border-slate-200 bg-white/90 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+          <section
+            id="errors"
+            class="panel-section hidden"
+            aria-label="Error log section"
+          >
+            <div
+              class="overflow-x-auto rounded-2xl border border-slate-200 bg-white/90 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+            >
               <table class="min-w-full text-sm">
-                <thead class="bg-slate-50 text-left uppercase tracking-wide text-slate-500 dark:bg-slate-800/70 dark:text-slate-400">
+                <thead
+                  class="bg-slate-50 text-left uppercase tracking-wide text-slate-500 dark:bg-slate-800/70 dark:text-slate-400"
+                >
                   <tr>
                     <th class="px-4 py-3">Timestamp</th>
                     <th class="px-4 py-3">Agent</th>
@@ -154,7 +396,10 @@
                     <th class="px-4 py-3 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody id="errors-body" class="divide-y divide-slate-200 dark:divide-slate-800"></tbody>
+                <tbody
+                  id="errors-body"
+                  class="divide-y divide-slate-200 dark:divide-slate-800"
+                ></tbody>
               </table>
             </div>
           </section>
@@ -162,11 +407,29 @@
       </div>
     </div>
 
-    <div id="modal-backdrop" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/55 p-4">
-      <div id="modal-panel" class="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl dark:border-slate-700 dark:bg-slate-900" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div
+      id="modal-backdrop"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/55 p-4"
+    >
+      <div
+        id="modal-panel"
+        class="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl dark:border-slate-700 dark:bg-slate-900"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+      >
         <div class="mb-4 flex items-start justify-between gap-4">
-          <h3 id="modal-title" class="text-xl font-extrabold [font-family:'Sora',sans-serif]"></h3>
-          <button id="modal-close" class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-semibold dark:border-slate-700" aria-label="Close modal">Close</button>
+          <h3
+            id="modal-title"
+            class="text-xl font-extrabold [font-family:'Sora',sans-serif]"
+          ></h3>
+          <button
+            id="modal-close"
+            class="rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-semibold dark:border-slate-700"
+            aria-label="Close modal"
+          >
+            Close
+          </button>
         </div>
         <div id="modal-content" class="space-y-3 text-sm"></div>
       </div>
@@ -179,41 +442,267 @@
       };
 
       const users = [
-        { id: "u1", name: "Lena Ortiz", email: "lena@northstarlogistics.com", plan: "Enterprise", status: "Active", company: "Northstar Logistics", joined: "2026-02-10", notes: "Manages a 12-agent automation fleet." },
-        { id: "u2", name: "Daniel Kim", email: "daniel@pulseops.ai", plan: "Growth", status: "Trial", company: "PulseOps", joined: "2026-05-01", notes: "Testing support triage agents." },
-        { id: "u3", name: "Aisha Rahman", email: "aisha@novamedia.io", plan: "Starter", status: "Suspended", company: "Nova Media", joined: "2025-12-14", notes: "Billing retry pending." },
-        { id: "u4", name: "Marco Silva", email: "marco@aeromatrix.tech", plan: "Enterprise", status: "Active", company: "AeroMatrix", joined: "2024-09-30", notes: "Uses custom compliance skills." },
-        { id: "u5", name: "Camila Reyes", email: "camila@blueleaf.co", plan: "Growth", status: "Active", company: "BlueLeaf", joined: "2026-01-19", notes: "Expanding to sales automation." },
+        {
+          id: "u1",
+          name: "Lena Ortiz",
+          email: "lena@northstarlogistics.com",
+          plan: "Enterprise",
+          status: "Active",
+          company: "Northstar Logistics",
+          joined: "2026-02-10",
+          notes: "Manages a 12-agent automation fleet.",
+        },
+        {
+          id: "u2",
+          name: "Daniel Kim",
+          email: "daniel@pulseops.ai",
+          plan: "Growth",
+          status: "Trial",
+          company: "PulseOps",
+          joined: "2026-05-01",
+          notes: "Testing support triage agents.",
+        },
+        {
+          id: "u3",
+          name: "Aisha Rahman",
+          email: "aisha@novamedia.io",
+          plan: "Starter",
+          status: "Suspended",
+          company: "Nova Media",
+          joined: "2025-12-14",
+          notes: "Billing retry pending.",
+        },
+        {
+          id: "u4",
+          name: "Marco Silva",
+          email: "marco@aeromatrix.tech",
+          plan: "Enterprise",
+          status: "Active",
+          company: "AeroMatrix",
+          joined: "2024-09-30",
+          notes: "Uses custom compliance skills.",
+        },
+        {
+          id: "u5",
+          name: "Camila Reyes",
+          email: "camila@blueleaf.co",
+          plan: "Growth",
+          status: "Active",
+          company: "BlueLeaf",
+          joined: "2026-01-19",
+          notes: "Expanding to sales automation.",
+        },
       ];
 
       const agents = [
-        { id: "a1", name: "Atlas Support", owner: "Lena Ortiz", status: "Active", skills: ["Web Browsing", "Knowledge Base Reader", "Ticket Router"], prompt: "You are Atlas Support. Solve Tier-1 issues, escalate uncertain cases, and summarize every interaction in under 120 words." },
-        { id: "a2", name: "Contract Sentinel", owner: "Marco Silva", status: "Failing", skills: ["Document Parser", "Clause Risk Classifier", "Email Drafting"], prompt: "You are Contract Sentinel. Review legal clauses, flag high-risk terms, and produce evidence-backed recommendations only." },
-        { id: "a3", name: "Calendar Pilot", owner: "Camila Reyes", status: "Inactive", skills: ["Calendar Management", "Timezone Resolver", "Meeting Brief Generator"], prompt: "You are Calendar Pilot. Schedule meetings, avoid conflicts, and include concise agendas with attendee context." },
-        { id: "a4", name: "Pipeline Scout", owner: "Daniel Kim", status: "Active", skills: ["CRM Sync", "Lead Enrichment", "Web Browsing"], prompt: "You are Pipeline Scout. Qualify inbound leads, enrich CRM profiles, and preserve source citations for every claim." },
+        {
+          id: "a1",
+          name: "Atlas Support",
+          owner: "Lena Ortiz",
+          status: "Active",
+          skills: ["Web Browsing", "Knowledge Base Reader", "Ticket Router"],
+          prompt:
+            "You are Atlas Support. Solve Tier-1 issues, escalate uncertain cases, and summarize every interaction in under 120 words.",
+        },
+        {
+          id: "a2",
+          name: "Contract Sentinel",
+          owner: "Marco Silva",
+          status: "Failing",
+          skills: [
+            "Document Parser",
+            "Clause Risk Classifier",
+            "Email Drafting",
+          ],
+          prompt:
+            "You are Contract Sentinel. Review legal clauses, flag high-risk terms, and produce evidence-backed recommendations only.",
+        },
+        {
+          id: "a3",
+          name: "Calendar Pilot",
+          owner: "Camila Reyes",
+          status: "Inactive",
+          skills: [
+            "Calendar Management",
+            "Timezone Resolver",
+            "Meeting Brief Generator",
+          ],
+          prompt:
+            "You are Calendar Pilot. Schedule meetings, avoid conflicts, and include concise agendas with attendee context.",
+        },
+        {
+          id: "a4",
+          name: "Pipeline Scout",
+          owner: "Daniel Kim",
+          status: "Active",
+          skills: ["CRM Sync", "Lead Enrichment", "Web Browsing"],
+          prompt:
+            "You are Pipeline Scout. Qualify inbound leads, enrich CRM profiles, and preserve source citations for every claim.",
+        },
       ];
 
       const skills = [
-        { id: "s1", name: "Web Browsing", description: "Visits pages and extracts web information with source links.", enabledBy: 2, details: "Supports query plans, source citation, and basic anti-hallucination guardrails." },
-        { id: "s2", name: "Document Parser", description: "Reads PDFs and structured docs for key data extraction.", enabledBy: 1, details: "Handles OCR text normalization and field-level extraction templates." },
-        { id: "s3", name: "Calendar Management", description: "Creates, moves, and cancels events across connected calendars.", enabledBy: 1, details: "Includes conflict detection, timezone conversion, and reminder policy settings." },
-        { id: "s4", name: "CRM Sync", description: "Reads and updates contacts, companies, and opportunities.", enabledBy: 1, details: "Supports deduplication checks and audit trail messages for updates." },
+        {
+          id: "s1",
+          name: "Web Browsing",
+          description:
+            "Visits pages and extracts web information with source links.",
+          enabledBy: 2,
+          details:
+            "Supports query plans, source citation, and basic anti-hallucination guardrails.",
+        },
+        {
+          id: "s2",
+          name: "Document Parser",
+          description:
+            "Reads PDFs and structured docs for key data extraction.",
+          enabledBy: 1,
+          details:
+            "Handles OCR text normalization and field-level extraction templates.",
+        },
+        {
+          id: "s3",
+          name: "Calendar Management",
+          description:
+            "Creates, moves, and cancels events across connected calendars.",
+          enabledBy: 1,
+          details:
+            "Includes conflict detection, timezone conversion, and reminder policy settings.",
+        },
+        {
+          id: "s4",
+          name: "CRM Sync",
+          description:
+            "Reads and updates contacts, companies, and opportunities.",
+          enabledBy: 1,
+          details:
+            "Supports deduplication checks and audit trail messages for updates.",
+        },
       ];
 
       const contracts = [
-        { id: "c1", client: "Northstar Logistics", agent: "Atlas Support", skills: ["Web Browsing", "Ticket Router"], start: "2026-01-01", end: "2026-12-31", amount: "$48,000", status: "Active", billing: "Monthly", renewal: "Auto", items: [{ name: "Web Browsing", price: 900 }, { name: "Ticket Router", price: 1100 }] },
-        { id: "c2", client: "AeroMatrix", agent: "Contract Sentinel", skills: ["Document Parser", "Clause Risk Classifier"], start: "2025-09-01", end: "2026-08-31", amount: "$54,000", status: "Active", billing: "Quarterly", renewal: "Manual", items: [{ name: "Document Parser", price: 1300 }, { name: "Clause Risk Classifier", price: 1700 }] },
-        { id: "c3", client: "BlueLeaf", agent: "Calendar Pilot", skills: ["Calendar Management", "Meeting Brief Generator"], start: "2025-03-15", end: "2026-03-14", amount: "$21,600", status: "Expired", billing: "Monthly", renewal: "Off", items: [{ name: "Calendar Management", price: 700 }, { name: "Meeting Brief Generator", price: 600 }] },
-        { id: "c4", client: "PulseOps", agent: "Pipeline Scout", skills: ["CRM Sync", "Lead Enrichment", "Web Browsing"], start: "2026-04-01", end: "2027-03-31", amount: "$39,600", status: "Active", billing: "Monthly", renewal: "Auto", items: [{ name: "CRM Sync", price: 1000 }, { name: "Lead Enrichment", price: 1200 }, { name: "Web Browsing", price: 1100 }] },
+        {
+          id: "c1",
+          client: "Northstar Logistics",
+          agent: "Atlas Support",
+          skills: ["Web Browsing", "Ticket Router"],
+          start: "2026-01-01",
+          end: "2026-12-31",
+          amount: "$48,000",
+          status: "Active",
+          billing: "Monthly",
+          renewal: "Auto",
+          items: [
+            { name: "Web Browsing", price: 900 },
+            { name: "Ticket Router", price: 1100 },
+          ],
+        },
+        {
+          id: "c2",
+          client: "AeroMatrix",
+          agent: "Contract Sentinel",
+          skills: ["Document Parser", "Clause Risk Classifier"],
+          start: "2025-09-01",
+          end: "2026-08-31",
+          amount: "$54,000",
+          status: "Active",
+          billing: "Quarterly",
+          renewal: "Manual",
+          items: [
+            { name: "Document Parser", price: 1300 },
+            { name: "Clause Risk Classifier", price: 1700 },
+          ],
+        },
+        {
+          id: "c3",
+          client: "BlueLeaf",
+          agent: "Calendar Pilot",
+          skills: ["Calendar Management", "Meeting Brief Generator"],
+          start: "2025-03-15",
+          end: "2026-03-14",
+          amount: "$21,600",
+          status: "Expired",
+          billing: "Monthly",
+          renewal: "Off",
+          items: [
+            { name: "Calendar Management", price: 700 },
+            { name: "Meeting Brief Generator", price: 600 },
+          ],
+        },
+        {
+          id: "c4",
+          client: "PulseOps",
+          agent: "Pipeline Scout",
+          skills: ["CRM Sync", "Lead Enrichment", "Web Browsing"],
+          start: "2026-04-01",
+          end: "2027-03-31",
+          amount: "$39,600",
+          status: "Active",
+          billing: "Monthly",
+          renewal: "Auto",
+          items: [
+            { name: "CRM Sync", price: 1000 },
+            { name: "Lead Enrichment", price: 1200 },
+            { name: "Web Browsing", price: 1100 },
+          ],
+        },
       ];
 
       const errors = [
-        { id: "e1", timestamp: "2026-07-15 09:41", agent: "Contract Sentinel", type: "Critical", description: "Clause classifier returned empty risk matrix.", trace: "Trace: classifyClause -> riskEngine.evaluate -> NullPointer on matrix.scoring." },
-        { id: "e2", timestamp: "2026-07-15 10:03", agent: "Atlas Support", type: "Timeout", description: "External KB lookup exceeded 12s budget.", trace: "Trace: kb.fetch -> network.client -> request timeout after 12000ms." },
-        { id: "e3", timestamp: "2026-07-15 10:27", agent: "Pipeline Scout", type: "Warning", description: "CRM sync skipped duplicate contact update.", trace: "Trace: syncContacts -> dedupe.check -> duplicate hash detected." },
-        { id: "e4", timestamp: "2026-07-15 11:05", agent: "Calendar Pilot", type: "Validation", description: "Invalid attendee timezone provided.", trace: "Trace: scheduleEvent -> timezone.parse -> unknown zone abbreviation." },
-        { id: "e5", timestamp: "2026-07-15 11:32", agent: "Contract Sentinel", type: "Critical", description: "Prompt guardrail policy mismatch.", trace: "Trace: guardrail.validate -> policyResolver -> missing policy version." },
-        { id: "e6", timestamp: "2026-07-15 12:14", agent: "Atlas Support", type: "Warning", description: "Low confidence on answer, escalation triggered.", trace: "Trace: response.rank -> confidence score 0.38 below threshold 0.45." },
+        {
+          id: "e1",
+          timestamp: "2026-07-15 09:41",
+          agent: "Contract Sentinel",
+          type: "Critical",
+          description: "Clause classifier returned empty risk matrix.",
+          trace:
+            "Trace: classifyClause -> riskEngine.evaluate -> NullPointer on matrix.scoring.",
+        },
+        {
+          id: "e2",
+          timestamp: "2026-07-15 10:03",
+          agent: "Atlas Support",
+          type: "Timeout",
+          description: "External KB lookup exceeded 12s budget.",
+          trace:
+            "Trace: kb.fetch -> network.client -> request timeout after 12000ms.",
+        },
+        {
+          id: "e3",
+          timestamp: "2026-07-15 10:27",
+          agent: "Pipeline Scout",
+          type: "Warning",
+          description: "CRM sync skipped duplicate contact update.",
+          trace:
+            "Trace: syncContacts -> dedupe.check -> duplicate hash detected.",
+        },
+        {
+          id: "e4",
+          timestamp: "2026-07-15 11:05",
+          agent: "Calendar Pilot",
+          type: "Validation",
+          description: "Invalid attendee timezone provided.",
+          trace:
+            "Trace: scheduleEvent -> timezone.parse -> unknown zone abbreviation.",
+        },
+        {
+          id: "e5",
+          timestamp: "2026-07-15 11:32",
+          agent: "Contract Sentinel",
+          type: "Critical",
+          description: "Prompt guardrail policy mismatch.",
+          trace:
+            "Trace: guardrail.validate -> policyResolver -> missing policy version.",
+        },
+        {
+          id: "e6",
+          timestamp: "2026-07-15 12:14",
+          agent: "Atlas Support",
+          type: "Warning",
+          description: "Low confidence on answer, escalation triggered.",
+          trace:
+            "Trace: response.rank -> confidence score 0.38 below threshold 0.45.",
+        },
       ];
 
       const sectionTitles = {
@@ -238,6 +727,11 @@
 
       const themeToggle = document.getElementById("theme-toggle");
       const themeLabel = document.getElementById("theme-label");
+      const appBackground = document.getElementById("app-background");
+      const sidebarShell = document.getElementById("sidebar-shell");
+      const topbarShell = document.getElementById("topbar-shell");
+      const mainShell = document.getElementById("main-shell");
+      const modalPanel = document.getElementById("modal-panel");
 
       function money(num) {
         return "$" + Number(num).toLocaleString();
@@ -245,22 +739,36 @@
 
       function statusBadgeClass(status) {
         const map = {
-          Active: "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300",
+          Active:
+            "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300",
           Trial: "bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300",
-          Suspended: "bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300",
-          Inactive: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
-          Failing: "bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300",
-          Critical: "bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300",
-          Timeout: "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300",
-          Warning: "bg-yellow-100 text-yellow-700 dark:bg-yellow-950 dark:text-yellow-300",
-          Validation: "bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300",
-          Resolved: "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300",
+          Suspended:
+            "bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300",
+          Inactive:
+            "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
+          Failing:
+            "bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300",
+          Critical:
+            "bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300",
+          Timeout:
+            "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300",
+          Warning:
+            "bg-yellow-100 text-yellow-700 dark:bg-yellow-950 dark:text-yellow-300",
+          Validation:
+            "bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300",
+          Resolved:
+            "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300",
         };
-        return map[status] || "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300";
+        return (
+          map[status] ||
+          "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300"
+        );
       }
 
       function closeMenus() {
-        document.querySelectorAll("[data-menu]").forEach((m) => m.classList.add("hidden"));
+        document
+          .querySelectorAll("[data-menu]")
+          .forEach((m) => m.classList.add("hidden"));
         appState.openMenu = null;
       }
 
@@ -312,11 +820,11 @@
                   <button data-menu-toggle="user-${user.id}" class="menu-trigger rounded-lg border border-slate-300 px-2.5 py-1.5 font-bold dark:border-slate-700" aria-label="Open actions menu">&#8942;</button>
                   <div data-menu="user-${user.id}" class="absolute right-4 z-20 mt-2 hidden w-40 rounded-xl border border-slate-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                     <button data-action="user-view" data-id="${user.id}" class="w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">View detail</button>
-                    <button class="w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40">Delete</button>
+                    <button data-action="user-delete" data-id="${user.id}" class="w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40">Delete</button>
                   </div>
                 </td>
               </tr>
-            `
+            `,
           )
           .join("");
       }
@@ -339,7 +847,7 @@
                       <button data-menu-toggle="agent-${agent.id}" class="menu-trigger rounded-lg border border-slate-300 px-2.5 py-1.5 font-bold dark:border-slate-700" aria-label="Open actions menu">&#8942;</button>
                       <div data-menu="agent-${agent.id}" class="absolute right-0 z-20 mt-2 hidden w-40 rounded-xl border border-slate-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                         <button data-action="agent-configure" data-id="${agent.id}" class="w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">Configure</button>
-                        <button class="w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40">Delete</button>
+                        <button data-action="agent-delete" data-id="${agent.id}" class="w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40">Delete</button>
                       </div>
                     </div>
                   </div>
@@ -350,7 +858,7 @@
                   </ul>
                 </div>
               </article>
-            `
+            `,
           )
           .join("");
       }
@@ -372,13 +880,13 @@
                       <button data-menu-toggle="skill-${skill.id}" class="menu-trigger rounded-lg border border-slate-300 px-2.5 py-1.5 font-bold dark:border-slate-700" aria-label="Open actions menu">&#8942;</button>
                       <div data-menu="skill-${skill.id}" class="absolute right-0 z-20 mt-2 hidden w-40 rounded-xl border border-slate-200 bg-white p-1 shadow-lg dark:border-slate-700 dark:bg-slate-900">
                         <button data-action="skill-view" data-id="${skill.id}" class="w-full rounded-lg px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-800">View detail</button>
-                        <button class="w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40">Delete</button>
+                        <button data-action="skill-delete" data-id="${skill.id}" class="w-full rounded-lg px-3 py-2 text-left text-sm text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40">Delete</button>
                       </div>
                     </div>
                   </div>
                 </div>
               </article>
-            `
+            `,
           )
           .join("");
       }
@@ -402,7 +910,7 @@
                   </div>
                 </td>
               </tr>
-            `
+            `,
           )
           .join("");
       }
@@ -425,16 +933,138 @@
                   </div>
                 </td>
               </tr>
-            `
+            `,
           )
           .join("");
       }
 
+      function applyTheme(isDark) {
+        document.documentElement.classList.toggle("dark", isDark);
+        document.documentElement.setAttribute(
+          "data-theme",
+          isDark ? "dark" : "light",
+        );
+
+        document.body.classList.toggle("bg-slate-950", isDark);
+        document.body.classList.toggle("text-slate-100", isDark);
+        document.body.classList.toggle("bg-slate-100", !isDark);
+        document.body.classList.toggle("text-slate-800", !isDark);
+        document.body.classList.toggle("transition-colors", true);
+        document.body.classList.toggle("duration-300", true);
+
+        if (appBackground) {
+          appBackground.className = isDark
+            ? "fixed inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(16,185,129,0.18),transparent_28%),radial-gradient(circle_at_85%_15%,rgba(59,130,246,0.18),transparent_34%),radial-gradient(circle_at_50%_85%,rgba(15,23,42,0.95),transparent_58%)] opacity-70 transition-opacity duration-300"
+            : "fixed inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(34,197,94,0.18),transparent_35%),radial-gradient(circle_at_85%_15%,rgba(14,165,233,0.14),transparent_42%),radial-gradient(circle_at_50%_85%,rgba(251,191,36,0.12),transparent_45%)] opacity-100 transition-opacity duration-300";
+        }
+
+        if (sidebarShell) {
+          sidebarShell.classList.toggle("bg-white/85", !isDark);
+          sidebarShell.classList.toggle("bg-slate-900/80", isDark);
+          sidebarShell.classList.toggle("border-slate-200/80", !isDark);
+          sidebarShell.classList.toggle("border-slate-700", isDark);
+        }
+
+        if (topbarShell) {
+          topbarShell.classList.toggle("bg-white/85", !isDark);
+          topbarShell.classList.toggle("bg-slate-900/90", isDark);
+          topbarShell.classList.toggle("border-slate-200/80", !isDark);
+          topbarShell.classList.toggle("border-slate-700", isDark);
+        }
+
+        if (mainShell) {
+          mainShell.classList.toggle("bg-transparent", !isDark);
+          mainShell.classList.toggle("bg-slate-950/30", isDark);
+        }
+
+        if (modalPanel) {
+          modalPanel.classList.toggle("bg-white", !isDark);
+          modalPanel.classList.toggle("bg-slate-900", isDark);
+          modalPanel.classList.toggle("border-slate-200", !isDark);
+          modalPanel.classList.toggle("border-slate-700", isDark);
+        }
+
+        document.querySelectorAll("[class*='bg-white/90']").forEach((node) => {
+          node.classList.toggle("bg-white/90", !isDark);
+          node.classList.toggle("bg-slate-900", isDark);
+        });
+
+        document.querySelectorAll("[class*='bg-white/85']").forEach((node) => {
+          node.classList.toggle("bg-white/85", !isDark);
+          node.classList.toggle("bg-slate-900/90", isDark);
+        });
+
+        document.querySelectorAll("[class~='bg-white']").forEach((node) => {
+          node.classList.toggle("bg-white", !isDark);
+          node.classList.toggle("bg-slate-900", isDark);
+        });
+
+        document.querySelectorAll("article").forEach((node) => {
+          node.classList.toggle("shadow-sm", !isDark);
+          node.classList.toggle("shadow-2xl", isDark);
+        });
+
+        document
+          .querySelectorAll("[class*='border-slate-200']")
+          .forEach((node) => {
+            node.classList.toggle("border-slate-200", !isDark);
+            node.classList.toggle("border-slate-700", isDark);
+          });
+
+        document
+          .querySelectorAll("[class*='text-slate-600']")
+          .forEach((node) => {
+            node.classList.toggle("text-slate-600", !isDark);
+            node.classList.toggle("text-slate-300", isDark);
+          });
+
+        document
+          .querySelectorAll("[class*='text-slate-500']")
+          .forEach((node) => {
+            node.classList.toggle("text-slate-500", !isDark);
+            node.classList.toggle("text-slate-400", isDark);
+          });
+
+        document.querySelectorAll("thead").forEach((node) => {
+          node.classList.toggle("bg-slate-50", !isDark);
+          node.classList.toggle("bg-slate-800", isDark);
+        });
+
+        document.querySelectorAll("tbody tr").forEach((node) => {
+          node.classList.toggle("bg-white/0", !isDark);
+          node.classList.toggle("bg-slate-900/40", isDark);
+        });
+
+        themeToggle.classList.toggle("bg-white", !isDark);
+        themeToggle.classList.toggle("bg-slate-900", isDark);
+        themeToggle.classList.toggle("text-slate-800", !isDark);
+        themeToggle.classList.toggle("text-slate-100", isDark);
+        themeToggle.classList.toggle("border-slate-300", !isDark);
+        themeToggle.classList.toggle("border-emerald-400", isDark);
+
+        themeLabel.textContent = isDark ? "Light Mode" : "Dark Mode";
+      }
+
+      function getSavedTheme() {
+        try {
+          return localStorage.getItem("agenthub-theme");
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function saveTheme(value) {
+        try {
+          localStorage.setItem("agenthub-theme", value);
+        } catch (error) {
+          // Ignore storage failures in restricted browser contexts.
+        }
+      }
+
       function initTheme() {
-        const saved = localStorage.getItem("agenthub-theme");
+        const saved = getSavedTheme();
         const dark = saved ? saved === "dark" : false;
-        document.documentElement.classList.toggle("dark", dark);
-        themeLabel.textContent = dark ? "Light Mode" : "Dark Mode";
+        applyTheme(dark);
       }
 
       function showUserDetail(id) {
@@ -452,7 +1082,7 @@
             <p><strong>Joined:</strong> ${user.joined}</p>
           </div>
           <p><strong>Notes:</strong> ${user.notes}</p>
-        `
+        `,
         );
       }
 
@@ -464,7 +1094,7 @@
           `
           <p class="text-slate-600 dark:text-slate-300">System prompt (editable for prototype behavior):</p>
           <textarea class="h-48 w-full rounded-xl border border-slate-300 bg-white p-3 text-sm dark:border-slate-700 dark:bg-slate-950">${agent.prompt}</textarea>
-        `
+        `,
         );
       }
 
@@ -479,14 +1109,17 @@
           <p><strong>Detail:</strong> ${skill.details}</p>
           <p><strong>Risk level:</strong> Medium</p>
           <p><strong>Example output:</strong> Structured summary with sources and confidence indicator.</p>
-        `
+        `,
         );
       }
 
       function showContractDetail(id) {
         const contract = contracts.find((c) => c.id === id);
         if (!contract) return;
-        const totalMonthly = contract.items.reduce((sum, item) => sum + item.price, 0);
+        const totalMonthly = contract.items.reduce(
+          (sum, item) => sum + item.price,
+          0,
+        );
         openModal(
           `Contract ${contract.id.toUpperCase()} - ${contract.client}`,
           `
@@ -506,7 +1139,7 @@
             <p class="mt-3 text-right font-bold">Monthly subtotal: ${money(totalMonthly)}</p>
             <p class="text-right font-bold">Contract total paid: ${contract.amount}</p>
           </div>
-        `
+        `,
         );
       }
 
@@ -520,7 +1153,31 @@
           <p><strong>Type:</strong> ${error.type}</p>
           <p><strong>Description:</strong> ${error.description}</p>
           <p class="rounded-lg bg-slate-100 p-3 text-xs dark:bg-slate-800"><strong>Trace:</strong><br />${error.trace}</p>
-        `
+        `,
+        );
+      }
+
+      function showDeleteModal(type, id) {
+        let itemName = "record";
+        if (type === "user") {
+          const user = users.find((u) => u.id === id);
+          if (user) itemName = `user ${user.name}`;
+        }
+        if (type === "agent") {
+          const agent = agents.find((a) => a.id === id);
+          if (agent) itemName = `agent ${agent.name}`;
+        }
+        if (type === "skill") {
+          const skill = skills.find((s) => s.id === id);
+          if (skill) itemName = `skill ${skill.name}`;
+        }
+
+        openModal(
+          "Delete Action (Prototype)",
+          `
+          <p>You clicked delete for <strong>${itemName}</strong>.</p>
+          <p class="text-slate-600 dark:text-slate-300">This is a non-destructive prototype action. In production, this would request confirmation and call a backend delete endpoint.</p>
+        `,
         );
       }
 
@@ -548,8 +1205,11 @@
           closeMenus();
 
           if (action === "user-view") showUserDetail(id);
+          if (action === "user-delete") showDeleteModal("user", id);
           if (action === "agent-configure") showAgentConfig(id);
+          if (action === "agent-delete") showDeleteModal("agent", id);
           if (action === "skill-view") showSkillDetail(id);
+          if (action === "skill-delete") showDeleteModal("skill", id);
           if (action === "contract-view") showContractDetail(id);
           if (action === "error-view") showErrorDetail(id);
           if (action === "error-resolve") {
@@ -566,7 +1226,9 @@
 
         if (collapseButton) {
           const collapseId = collapseButton.dataset.collapseToggle;
-          const panel = document.querySelector(`[data-collapse='${collapseId}']`);
+          const panel = document.querySelector(
+            `[data-collapse='${collapseId}']`,
+          );
           const isClosed = panel.classList.contains("max-h-0");
 
           panel.classList.toggle("max-h-0", !isClosed);
@@ -578,13 +1240,18 @@
           return;
         }
 
-        if (!target.closest("[data-menu]") && !target.closest("[data-menu-toggle]")) {
+        if (
+          !target.closest("[data-menu]") &&
+          !target.closest("[data-menu-toggle]")
+        ) {
           closeMenus();
         }
       });
 
       navButtons.forEach((button) => {
-        button.addEventListener("click", () => setActiveSection(button.dataset.section));
+        button.addEventListener("click", () =>
+          setActiveSection(button.dataset.section),
+        );
       });
 
       mobileNavToggle.addEventListener("click", () => {
@@ -592,9 +1259,9 @@
       });
 
       themeToggle.addEventListener("click", () => {
-        const dark = document.documentElement.classList.toggle("dark");
-        localStorage.setItem("agenthub-theme", dark ? "dark" : "light");
-        themeLabel.textContent = dark ? "Light Mode" : "Dark Mode";
+        const isDark = !document.documentElement.classList.contains("dark");
+        applyTheme(isDark);
+        saveTheme(isDark ? "dark" : "light");
       });
 
       modalClose.addEventListener("click", closeModal);
