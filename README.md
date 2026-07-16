@@ -1,11 +1,25 @@
-# HTML Hello
+# AgentHub Admin Panel Prototype
 
 ## AgentHub Deliverables
 
 - [SPECS.md](./SPECS.md): product specification for the AgentHub admin panel prototype.
 - [index.html](./index.html): interactive HTML prototype built from the specification.
 
-The most basic boilerplate for any 4Geeks Academy student, start your very first website from scratch.
+This repository contains a prompt-driven frontend prototype for AgentHub, a SaaS platform where companies rent AI agents with attachable skills.
+
+The deliverable includes:
+
+- A written specification that defines the product, components, behaviors, and acceptance criteria.
+- A single-file HTML prototype with a persistent sidebar, hardcoded admin data, reusable UI patterns, and vanilla JavaScript interactions.
+- Core admin sections for dashboard metrics, users, agents, skills, contracts, and error monitoring.
+
+Prototype highlights:
+
+- Tailwind CSS loaded via CDN.
+- Vanilla JavaScript only for dropdowns, modals, collapsible skill lists, and theme switching.
+- Hardcoded, internally consistent sample data designed for review and backend handoff.
+
+The rest of this README preserves the original template usage notes.
 
 > There is a video tutorial on [how to use this template to create your very first website here](https://youtu.be/dfbDCMu_p-0).
 
