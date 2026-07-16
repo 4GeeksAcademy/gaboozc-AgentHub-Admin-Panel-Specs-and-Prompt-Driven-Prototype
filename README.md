@@ -1,5 +1,10 @@
 # HTML Hello
 
+## AgentHub Deliverables
+
+- [SPECS.md](./SPECS.md): product specification for the AgentHub admin panel prototype.
+- [index.html](./index.html): interactive HTML prototype built from the specification.
+
 The most basic boilerplate for any 4Geeks Academy student, start your very first website from scratch.
 
 > There is a video tutorial on [how to use this template to create your very first website here](https://youtu.be/dfbDCMu_p-0).
@@ -18,7 +23,7 @@ $ pip3 install flask && python3 server.py
 ```html
 <head>
   ...
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="styles.css" />
   ...
 </head>
 ```
@@ -29,7 +34,7 @@ $ pip3 install flask && python3 server.py
 <head>
   ...
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="styles.css" />
   ...
 </head>
 ```
